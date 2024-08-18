@@ -55,6 +55,8 @@ pipeline {
                 sh '''
                     git config user.email "poovaragavan@1cloudhub.com"
                     git config user.name "poovaragavan-a"
+                    echo "java-maven-sonar-argocd-helm-k8s/spring-boot-app/target/" >> .gitignore
+                    git add .gitignore
                     BUILD_NUMBER=${BUILD_NUMBER}
                     sed -i "s/replaceImageTag/${BUILD_NUMBER}/g" java-maven-sonar-argocd-helm-k8s/spring-boot-app-manifests/deployment.yml
                     git add java-maven-sonar-argocd-helm-k8s/spring-boot-app-manifests/deployment.yml
